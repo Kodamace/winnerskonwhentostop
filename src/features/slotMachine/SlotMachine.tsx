@@ -77,6 +77,9 @@ export const SlotMachine = () => {
           "Sorry not enough points to bet please bet a lower amount"
         );
       }
+    else if (betAmount <= 0) {
+      return window.alert("You can not be $0");
+    }
     handleSpinClickStateUpdate();
     // // we check with regards to our probability amount that we pass as a parameter that the radom values are within scope of the set probability
     // // we then check if our result and count match up and handle whether to make the user win or not
@@ -146,6 +149,8 @@ export const SlotMachine = () => {
             value={betAmount}
             placeholder="Bet Amount"
             onChange={(e: any) => {
+              if (e.target.value < 0)
+                return window.alert("Why would you try bet that amount... ?");
               setRenderNumbers(false);
               setShowNumbers(false);
               dispatch(setBetAmount(e.target.value));
