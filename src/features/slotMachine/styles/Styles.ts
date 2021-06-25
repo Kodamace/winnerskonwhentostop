@@ -8,6 +8,8 @@ export const StyledSLotsScreen = styled.div`
   border: 4px solid black;
   border-radius: 33px;
   justify-content: center;
+  height: 24px;
+  overflow: hidden;
 `;
 
 export const StyledSlotBox = styled.div`
@@ -35,6 +37,7 @@ export const StyledSlotBox = styled.div`
     hideBorderRight: "none",
     showBorderRight: "1px solid black",
   } as any)};
+  position: relative;
 `;
 
 export const StyledActions = styled.div`

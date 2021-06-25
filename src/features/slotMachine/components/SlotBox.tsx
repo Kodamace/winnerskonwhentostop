@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StyledSlotBox } from "../styles/Styles";
+import Slot from "./Slot";
 import { SlotNumber } from "./SlotNumber";
 
 interface ISlotBox {
@@ -8,6 +9,7 @@ interface ISlotBox {
   slot: number;
   loading: boolean;
   renderNumbers: boolean;
+  landingPos: number;
 }
 
 export const SlotBox: FunctionComponent<ISlotBox> = ({
@@ -16,6 +18,7 @@ export const SlotBox: FunctionComponent<ISlotBox> = ({
   slot,
   loading,
   renderNumbers,
+  landingPos = 0,
 }) => {
   const showBorderRight = (index: number, arr: any[]) => {
     if (index + 1 === arr.length) {
@@ -31,8 +34,9 @@ export const SlotBox: FunctionComponent<ISlotBox> = ({
       }`}
     >
       {renderNumbers && (
-        <SlotNumber number={slot} index={(i + 1) * 500} isLoading={loading} />
+        <Slot iconCount={10} landingPos={landingPos} index={i} />
       )}
+      {!renderNumbers && <div style={{ position: "absolute", top: -2 }}>-</div>}
     </StyledSlotBox>
   );
 };
